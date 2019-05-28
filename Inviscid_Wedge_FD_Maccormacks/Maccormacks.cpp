@@ -265,16 +265,16 @@ void Euler_Wall_BC(vector< vector<double> > &prim_vars, const double xi)
 
 	//Calculate initial Mach at wall
 	M_cal = sqrt( pow(prim_vars[0][0], 2) + pow(prim_vars[0][1], 2) ) / sqrt (gamma * R * prim_vars[0][3]);
-//cout << "M_cal: " << M_cal << endl;
+
 	//Calculate initial Prantl-Meyer
 	f_cal = Calc_Prantl_Meyer_Function(M_cal, 0, 1);
-//cout << "f_cal: " << f_cal << endl;
+
 	//Calculate actual Prantl-Meyer
 	f_act = f_cal + phi;
-//cout << "f_act: " << f_act << endl;
+
 	//Solve for actual Mach using Secant method
 	M_act = Secant_Method(f_act, M_cal, (M_cal+.5));
-//cout << "M_act: " << M_act << endl;
+
 	//Calculate corrected pressure
 	num = 1 + (((gamma - 1) / 2) * pow(M_cal, 2) );
 	den = 1 + (((gamma - 1) / 2) * pow(M_act, 2));

@@ -26,8 +26,6 @@ void Calc_Primitive_Vars(const vector< vector<double> > &F, vector< vector<doubl
 			//v
 			v = F[i][2] / F[i][0];
 		}
-
-		
 		
 		//p
 		p = F[i][1] - ( F[i][0] * u );
